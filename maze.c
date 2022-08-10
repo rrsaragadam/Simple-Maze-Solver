@@ -1,20 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////
-// INTEGRITY STATEMENT (v3)
-//
-// By signing your name and ID below you are stating that you have agreed
-// to the online academic integrity statement:
-// https://student.cs.uwaterloo.ca/~cs136/current/assignments/integrity.shtml
-/////////////////////////////////////////////////////////////////////////////
-// I received help from and/or collaborated with:
-
-// None
-// 
-// Name: Raj Saragadam
-// login ID: rsaragad
-/////////////////////////////////////////////////////////////////////////////
-
 #include "maze.h"
-#include "cs136-trace.h"
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -77,13 +61,6 @@ struct maze *maze_read(void) {
     //m1->maze[m1->len] = wall;
     //m1->len++;
   }
-  //trace_int(m1->width);
-  //trace_int(m1->height);
-  trace_int(m1->start_x);
-  trace_int(m1->start_y);
-  trace_int(m1->end_x);
-  trace_int(m1->end_y);
-  //trace_string(m1->maze);
   return m1;
 }
 
@@ -105,9 +82,7 @@ char coord(struct maze *m, int x, int y) {
     }
   for (int i = 0; i < y; i++) {
     pos+=m->width;
-    //trace_int(pos);
   }
-  //trace_int(pos);
   return m->maze[pos];
 }
 
@@ -119,8 +94,7 @@ XSXEX
 XXXXX
 */
 // UURRDU   LLDURRDULL
-// See maze.h for documentation.
-// time: ???
+
 void maze_solve(struct maze *maze) {
   int x = maze->start_x; // 1
   int y = maze->start_y; // 3
@@ -136,11 +110,8 @@ void maze_solve(struct maze *maze) {
     if (pos == 'E') {
       break;
     } else if (up) {
-      //trace_char(coord(maze, x+1, y));
       if (coord(maze, x+1, y) == ' ' ||
           coord(maze, x+1, y) == 'E' ) {
-        //trace_int(x);
-        //trace_int(y);
         printf("R");
         //printf("R: Coord(%d, %d)\n", x, y);
         x = x+1;
@@ -164,8 +135,6 @@ void maze_solve(struct maze *maze) {
         down = true;
       }
     } else if (down) {
-      trace_int(x);
-      trace_int(y);
       if (coord(maze, x-1, y) == ' ' ||
           coord(maze, x-1, y) == 'E') {
         printf("L");
@@ -240,5 +209,4 @@ void maze_solve(struct maze *maze) {
     }
   }
   printf("\n");
-  // Your implementation goes here.
 }
