@@ -1,5 +1,3 @@
-// SEASHELL_READONLY
-
 // Represents a maze
 struct maze;
 
@@ -31,5 +29,4 @@ void maze_destroy(struct maze *maze);
 //   All directions are relative to the maze: for example, U is always going up,
 //   independently from the previous instruction.
 // effects: writes to the console
-// time:    ???
 void maze_solve(struct maze *maze);
